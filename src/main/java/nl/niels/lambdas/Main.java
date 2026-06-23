@@ -2,9 +2,11 @@ package nl.niels.lambdas;
 
 
 import java.lang.classfile.attribute.SourceDebugExtensionAttribute;
-import java.util.function.BiPredicate;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.*;
 
 /**
  * This package holds information on what lambdas are, how they are set up, and what some of the popular lambdas are in the API
@@ -56,6 +58,21 @@ public class Main {
          */
         Supplier<String> greetingSupplier = () -> "Hello, World!";
         System.out.println(greetingSupplier.get());
+
+        Consumer<String> logger = printable -> System.out.println("LOG: " + printable);
+        logger.accept("Testing logger");
+
+        List<String> logs = Arrays.asList("Logs initialized", "Consumer active");
+        logs.forEach(logger);
+
+        Map<String, String> countryCapital = new HashMap<>();
+        BiConsumer<String, String> biConsumer = countryCapital::put;
+        biConsumer.accept("Belgium", "Brussels");
+        biConsumer.accept("Germany", "Berlin");
+
+        BiConsumer<String, String> countryCapitalPrinter = (key, value)
+                -> System.out.println(value + " is the capital of " + key);
+        countryCapital.forEach(countryCapitalPrinter);
     }
 
     /**
