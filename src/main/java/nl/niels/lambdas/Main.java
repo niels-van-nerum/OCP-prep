@@ -81,6 +81,14 @@ public class Main {
         // BiFunction, like other Bi functional interfaces takes in two args, and returns one
         BiFunction<String, String, Integer> lengthAdder = (s1, s2) -> s1.length() + s2.length();
         System.out.println(lengthAdder.apply("Mozart", "Shakespeare"));
+
+        // UnaryOperator and BinaryOperator are extensions of Function and BiFunction, instead of changing the output,
+        // they keep the same data type.
+        UnaryOperator<String> greeter = s -> "My name is " + s;
+        System.out.println(greeter.apply("Niels"));
+
+        BinaryOperator<String> smush = String::concat;
+        System.out.println(smush.apply("William", "Shakespeare"));
     }
 
     /**
