@@ -73,6 +73,14 @@ public class Main {
         BiConsumer<String, String> countryCapitalPrinter = (key, value)
                 -> System.out.println(value + " is the capital of " + key);
         countryCapital.forEach(countryCapitalPrinter);
+
+        // A function transforms something into something else, defined by the two generics
+        Function<String, Integer> lengthLambda = String::length;
+        System.out.println(lengthLambda.apply("test"));
+
+        // BiFunction, like other Bi functional interfaces takes in two args, and returns one
+        BiFunction<String, String, Integer> lengthAdder = (s1, s2) -> s1.length() + s2.length();
+        System.out.println(lengthAdder.apply("Mozart", "Shakespeare"));
     }
 
     /**
