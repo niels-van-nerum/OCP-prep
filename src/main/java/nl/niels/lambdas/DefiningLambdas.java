@@ -1,11 +1,7 @@
 package nl.niels.lambdas;
 
 
-import java.lang.classfile.attribute.SourceDebugExtensionAttribute;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.*;
 
 /**
@@ -21,7 +17,8 @@ import java.util.function.*;
  * As of Java 8, interfaces can have default and static methods, they are inheritable, and don't have to be overridden.
  * Interfaces are inherently abstract, meaning they can not be instantiated.
  */
-public class Main {
+public class DefiningLambdas {
+
     static void main() {
         Calculator lambda = (a, b) -> System.out.println(a + b);
         lambda.operate(11, 4);
